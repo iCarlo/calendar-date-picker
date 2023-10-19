@@ -7,9 +7,10 @@ interface CalendarProps {
   date?: Date | string | null,
   onSelect: (date: Date) => void,
   show: boolean,
+  onShowCalendar: (open: boolean) => void,
 }
 
-const Calendar: React.FC<CalendarProps> = ({date,show, onSelect}) => {
+const Calendar: React.FC<CalendarProps> = ({date,show, onSelect, onShowCalendar}) => {
   const months = [
     "January",
     "February",
@@ -41,13 +42,14 @@ const Calendar: React.FC<CalendarProps> = ({date,show, onSelect}) => {
     }
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [date])
   
 
 
   const onSelectDateHandler = (date: Date) => {
     onSelect(date);
     setSelectedDate(date);
+    onShowCalendar(false);
   }
 
   const onSelectMonthHandler = (month: number) => {
@@ -55,7 +57,6 @@ const Calendar: React.FC<CalendarProps> = ({date,show, onSelect}) => {
     newDate.setMonth(month);
     setSelectedDate(newDate);
     onSelect(newDate);
-    setCurrentCalendarControl(2);
   }
 
   const onSelectYearHandler = (year: number) => {

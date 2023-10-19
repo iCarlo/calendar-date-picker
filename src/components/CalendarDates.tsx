@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { generateDatesData } from '../utils/helpers';
 
 interface CalendarDatesProps {
@@ -17,7 +17,7 @@ const CalendarDates: React.FC<CalendarDatesProps> = ({
 
   const weekDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-  const [currentMonthSlide, setCurrentMonthSlide] = useState(selectedDate.getMonth());
+  const [currentMonthSlide, setCurrentMonthSlide] = useState(0);
 
   const prevSlide = () => {
     setCurrentMonthSlide(currentMonthSlide === 0 ? 0 : (prev) => prev - 1)
@@ -25,6 +25,12 @@ const CalendarDates: React.FC<CalendarDatesProps> = ({
   const nextSlide = () => {
     setCurrentMonthSlide(currentMonthSlide === 11 ? 11 : (prev) => prev + 1)
   }
+  
+
+  useEffect(() => {
+    setCurrentMonthSlide(selectedDate.getMonth())
+  }, [selectedDate])
+  
 
   return (
     <>
@@ -38,7 +44,7 @@ const CalendarDates: React.FC<CalendarDatesProps> = ({
 
       <div className="calendar-body">
         {months.map((month, i) => (
-          <div key={i} className="calendar-month" style={{transform: `translateX(-${currentMonthSlide * 300}px)`}}>
+          <div key={i} className="calendar-month" style={{transform: `translateX(-${currentMonthSlide * 350}px)`}}>
               <div className="table-header">
                 {weekDays.map((weekday, i) => (
                   <div className='weekday' key={i}><p>{weekday}</p></div>
@@ -58,7 +64,7 @@ const CalendarDates: React.FC<CalendarDatesProps> = ({
                     }
                     onClick={() => onSelectDateHandler(date.date)}
                   >
-                      <p>{date.date.getDate()}</p>
+                      <span>{date.date.getDate()}</span>
                   </div>
                 ))}
               </div>

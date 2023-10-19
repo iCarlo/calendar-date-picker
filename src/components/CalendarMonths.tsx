@@ -35,7 +35,7 @@ const CalendarMonths: React.FC<CalendarMonthsProps> = ({months, selectedDate, on
               }
               onClick={() => onChangeMonthHandler(i)}
             >
-                <p>{month.slice(0,3)}</p>
+                <span>{month.slice(0,3)}</span>
             </div>
           ))}
         </div>

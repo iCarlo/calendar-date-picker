@@ -13,21 +13,24 @@ const CalendarYears:React.FC<CalendarYearsProps> = ({selectedDate, onSelectYearH
   const [tempDate, setTempDate] = useState(selectedDate)
  
   useEffect(() => {
+    setTempDate(selectedDate)
+    
+  }, [selectedDate])
+
+  useEffect(() => {
     setYearOptions(generateYearsData(tempDate.getFullYear()))
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [tempDate])
 
 
   const prevSlide = () => {
     const tempYear = (new Date(tempDate));
     const newDate = moment(tempYear).add(-10, "years").toDate();
-    console.log(newDate)
     setTempDate(newDate);
   }
   const nextSlide = () => {
     const tempYear = (new Date(tempDate));
     const newDate = moment(tempYear).add(10, "years").toDate();
-    console.log(newDate)
     setTempDate(newDate);
   }
   
@@ -54,7 +57,7 @@ const CalendarYears:React.FC<CalendarYearsProps> = ({selectedDate, onSelectYearH
               }
               onClick={() => onSelectYearHandler(year)}
             >
-                <p>{year}</p>
+                <span>{year}</span>
             </div>
           ))}
         </div>

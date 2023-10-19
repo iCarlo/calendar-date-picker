@@ -15,11 +15,7 @@ const DatePicker = () => {
     setInputDate(e.target.value)
   }
 
-  const openCalendarHandler = () => {
-    setOpenCalendar(!openCalendar);
-  }
-
-  const onSelectDateHanlder = (date: Date) => {
+  const onSelectDateHandlder = (date: Date) => {
     setInputDate(moment(date).format("YYYY-MM-DD"))
   }
 
@@ -50,11 +46,11 @@ const DatePicker = () => {
           placeholder="YYYY-MM-DD" 
           value={inputDate} 
           onChange={onChangeHandler} 
-          onClick={() => openCalendarHandler()}
+          onFocus={() => setOpenCalendar(true)}
         />
       </div>
       {errorMsg && <span className="date-picker-error">{errorMsg}</span>}
-     {<Calendar show={openCalendar} date={selectedDate} onSelect={onSelectDateHanlder} />}
+     {<Calendar show={openCalendar} onShowCalendar={() => setOpenCalendar(false)} date={selectedDate} onSelect={onSelectDateHandlder} />}
     </span>
   )
 }

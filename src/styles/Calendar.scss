@@ -1,6 +1,6 @@
 .calendar {
-  width: 300px;
-  height: 380px;
+  width: 350px;
+  max-height: 380px;
   border-radius: 3px;
   position: absolute;
   top: 45px;
@@ -37,13 +37,13 @@
   }
 
   .calendar-body {
-    width: 3600px;
+    width: 4200px;
     display: flex;
     transition: all 1s ease;
 
     .calendar-month {
       width: 100%;
-      padding: 0 20px;
+      padding: 0 20px 20px 20px;
 
       .table-header {
         display: flex;
@@ -54,7 +54,7 @@
         height: 40px;
 
         .weekday {
-          width: 35px;
+          width: 40px;
           text-align: center;
         }
       }
@@ -67,13 +67,15 @@
 
 
         .date {
-          width: 35px;
+          width: 40px;
           text-align: center;
           height: 40px;
           color: gray;
           cursor: pointer;
           pointer-events: none;
-          
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &.current-month {
             color: black;
@@ -88,7 +90,7 @@
           &.selected-date {
             color: white;
             background-color: #db3d44;
-
+            border-radius: 50%;
           }
 
          
@@ -98,7 +100,7 @@
   }
 
   .calendar-months-body {
-    width: 300px;
+    width: 350px;
     display: flex;
     transition: all 1s ease;
 
@@ -110,19 +112,24 @@
       justify-content: space-around;
       flex-wrap: wrap;
       flex-grow: 1;
+      padding: 0 20px 20px 20px;
 
       .month {
-        width: 60px;
+        width: 70px;
+        height: 70px;
         text-align: center;
-        height: 60px;
         color: black;
         font-weight: 500;
         cursor: pointer;
-        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      
 
         &.selected-month {
           color: white;
           background-color: #db3d44;
+          border-radius: 50%;
         }
        
       }
@@ -130,7 +137,7 @@
   }
 
   .calendar-years-body {
-    width: 300px;
+    width: 350px;
     display: flex;
     transition: all 1s ease;
 
@@ -142,15 +149,19 @@
       justify-content: space-around;
       flex-wrap: wrap;
       flex-grow: 1;
+      padding: 0 20px 20px 20px;
 
       .year {
-        width: 60px;
+        width: 70px;
         text-align: center;
         height: 70px;
         color: gray;
         font-weight: 500;
         cursor: pointer;
         pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         
         &.active-year {
           color: white;
@@ -161,6 +172,8 @@
         &.selected-year {
           color: white;
           background-color: #db3d44;
+          border-radius: 50%;
+
         }
         
         
