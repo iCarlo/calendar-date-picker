@@ -31,6 +31,10 @@ const DatePicker = () => {
     if(!error && inputDate !== "") {
       setSelectedDate(moment(inputDate).format("YYYY-MM-DD"))
      }
+
+     if(inputDate === "") {
+      setSelectedDate("")
+     }
   
   }, [errorMsg, inputDate])
 
