@@ -2,24 +2,35 @@ import React from 'react'
 
 interface CalendarMonthsProps {
   months: string[],
-  selectedMonth: number,
+  selectedDate: Date,
   onSelectMonthHandler: (month: number) => void
+  onSelectCalendarControlHandler: (index: number) => void
 }
 
-const CalendarMonths: React.FC<CalendarMonthsProps> = ({months, selectedMonth, onSelectMonthHandler}) => {
+const CalendarMonths: React.FC<CalendarMonthsProps> = ({months, selectedDate, onSelectMonthHandler, onSelectCalendarControlHandler}) => {
 
   const onChangeMonthHandler = (month: number) => {
     onSelectMonthHandler(month)
   }
 
   return (
-    <div className="table-content">
+    <>
+      <div className="calendar-controls">
+        <span><i className="bi bi-chevron-left"></i></span>
+        <button onClick={() => onSelectCalendarControlHandler(2)} className='calendar-controls-btn'>
+           {selectedDate.getFullYear()}
+        </button>
+        <span><i className="bi bi-chevron-right"></i></span>
+      </div>
+
+      <div className="calendar-months-body">
+        <div className="months-content">
           {months.map((month, i) => (
             <div 
               key={i} 
               className={
                 `month 
-                ${i === selectedMonth ? "selected-month": ""}            
+                ${i === selectedDate.getMonth() ? "selected-month": ""}            
                 `
               }
               onClick={() => onChangeMonthHandler(i)}
@@ -28,6 +39,8 @@ const CalendarMonths: React.FC<CalendarMonthsProps> = ({months, selectedMonth, o
             </div>
           ))}
         </div>
+      </div>
+    </>
   )
 }
 

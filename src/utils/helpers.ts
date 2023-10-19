@@ -70,3 +70,21 @@ export const generateDatesData = (month: string, selectedDate: Date, monthIndex:
   }
   return dates;
 }
+
+export const generateYearsData = (year: number) => {
+  const yearString = year.toString();
+  const years = [];
+  const baseYear = parseInt(yearString.slice(0, 2) + "00");
+  const tensInYear = parseInt(yearString[2] + "0")
+  const tempYear = baseYear + tensInYear
+
+  years.push(tempYear - 1);
+  years.push(tempYear);
+
+  for (let i = 1; i <= 10; i++) {
+    years.push(tempYear + i)
+  }
+
+  return years;
+
+}

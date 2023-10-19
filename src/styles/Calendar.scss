@@ -93,22 +93,77 @@
 
          
         }
+      }
+    }
+  }
 
-        .month {
-          width: 60px;
-          text-align: center;
-          height: 60px;
-          color: black;
-          font-weight: 500;
-          cursor: pointer;
-          
+  .calendar-months-body {
+    width: 300px;
+    display: flex;
+    transition: all 1s ease;
 
-          &.selected-month {
-            color: white;
-            background-color: #db3d44;
-          }
-         
+    
+    .months-content {
+      width: 100%;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-grow: 1;
+
+      .month {
+        width: 60px;
+        text-align: center;
+        height: 60px;
+        color: black;
+        font-weight: 500;
+        cursor: pointer;
+        
+
+        &.selected-month {
+          color: white;
+          background-color: #db3d44;
         }
+       
+      }
+    }
+  }
+
+  .calendar-years-body {
+    width: 300px;
+    display: flex;
+    transition: all 1s ease;
+
+    
+    .years-content {
+      width: 100%;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      flex-grow: 1;
+
+      .year {
+        width: 60px;
+        text-align: center;
+        height: 70px;
+        color: gray;
+        font-weight: 500;
+        cursor: pointer;
+        pointer-events: none;
+        
+        &.active-year {
+          color: white;
+          color: black;
+          pointer-events: all;
+        }
+
+        &.selected-year {
+          color: white;
+          background-color: #db3d44;
+        }
+        
+        
       }
     }
   }
