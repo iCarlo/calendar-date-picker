@@ -1,0 +1,99 @@
+.calendar {
+  width: 300px;
+  height: 380px;
+  border-radius: 3px;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background-color: white;
+  overflow: hidden;
+
+  -webkit-box-shadow: 0px 0px 2px 1px rgba(219,219,219,1);
+  -moz-box-shadow: 0px 0px 2px 1px rgba(219,219,219,1);
+  box-shadow: 0px 0px 2px 1px rgba(219,219,219,1);
+
+  .calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+
+    .calendar-controls-btn {
+      width: 70%;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    span {
+      cursor: pointer;
+
+      .bi::before {
+        font-weight: 800 !important;
+      }
+    }
+  }
+
+  .calendar-body {
+    width: 3600px;
+    display: flex;
+    transition: all 1s ease;
+
+    .calendar-month {
+      width: 100%;
+      padding: 0 20px;
+
+      .table-header {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        font-weight: 500;
+        height: 40px;
+
+        .weekday {
+          width: 35px;
+          text-align: center;
+        }
+      }
+
+      .table-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        flex-grow: 1;
+
+
+        .date {
+          width: 35px;
+          text-align: center;
+          height: 40px;
+          color: gray;
+          cursor: pointer;
+          pointer-events: none;
+          
+
+          &.current-month {
+            color: black;
+            font-weight: 500;
+            pointer-events: all;
+          }
+
+          &.current-date {
+            color: red;
+          }
+
+          &.selected-date {
+            color: white;
+            background-color: red;
+
+          }
+
+         
+        }
+      }
+    }
+  }
+}

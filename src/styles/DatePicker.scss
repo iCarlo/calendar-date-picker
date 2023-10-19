@@ -1,0 +1,80 @@
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+  .date-picker-body {
+    display: -ms-flexbox; /* IE10 */
+    display: inline-flex;
+  
+    &:focus-within {
+      .bi {
+        border: 3px solid rgb(23, 122, 221);
+        border-right: none;
+      }
+    }
+  
+    .bi {
+      padding: 10px 0 10px 10px;
+      color: dodgerblue;
+      min-width: 20px;
+      text-align: center;
+      border: 2px solid dodgerblue;
+      border-right: none;
+      border-radius: 5px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-right: 10px;
+    }
+  
+    .date-picker-input {
+      width: 110px;
+      padding: 10px 10px 10px 0 ;
+      outline: none;
+      border: 2px solid dodgerblue;
+      border-left: none;
+      border-radius: 5px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      font-size: 1rem;
+  
+      &:focus {
+        border: 3px solid rgb(23, 122, 221);
+        border-left: none;
+      }
+    }
+  
+    &.error {
+      .bi {
+        border: 2px solid red;
+        border-right: none;
+        color: red;
+      }
+  
+      &:focus-within {
+        .bi {
+          border: 3px solid red;
+          border-right: none;
+        }
+      }
+  
+      .date-picker-input {
+        border: 2px solid red;
+        border-left: none;
+  
+        &:focus {
+          border: 3px solid red;
+          border-left: none;
+        }
+      }
+    }
+  }
+  
+  .date-picker-error {
+    color: red;
+  }
+}
